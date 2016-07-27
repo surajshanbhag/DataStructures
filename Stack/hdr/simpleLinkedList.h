@@ -30,4 +30,5 @@ class LinkedList
     void Insert(int VAL,int position);
     void PrintList(void);
     int getLength(void);
+    int find(int VAL);
 };

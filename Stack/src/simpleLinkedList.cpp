@@ -103,14 +103,14 @@ void LinkedList::Delete(int position)
   {
     int index=0;
     Node *temp=head;
-    while(index < position)
+    while(index < position-1)
     {
       index++;
       temp=temp->getPtr();
     }
     Node *delNode=temp->getPtr(); 
     Node *nextNode=delNode->getPtr();
-    temp->setPtr(nextNode->getPtr());
+    temp->setPtr(nextNode);
     delete[] delNode;
     LinkedList::length--;
   }
@@ -134,4 +134,20 @@ void LinkedList::PrintList(void)
 int LinkedList::getLength(void)
 {
   return LinkedList::length;
+}
+
+/**************************************int LinkedList::find(int VAL)*/
+int LinkedList::find(int VAL)
+{
+  Node *temp=head;
+  int count=0;
+  while(temp !=NULL)
+  {
+    if(temp->getValue() == VAL)
+    {
+      return count;
+    }
+    temp=temp->getPtr();
+    count++;
+  }
 }
