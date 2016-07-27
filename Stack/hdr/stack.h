@@ -8,18 +8,19 @@
 #include "./node.h"
 #endif
 
-class LinkedList
+class Stack
 {
   private:
     Node *head;
-    static int length;
+    Node *tail;
+    int length;
 
   public:
-    LinkedList(void);
-    void Append(int VAL);
-    void Delete(int position);
-    void Insert(int VAL,int position);
-    void PrintList(void);
+    Stack(void);
+    void Push(int VAL);
+    int Pop(void);
+    void PrintStack(void);
     int getLength(void);
     int find(int VAL);
+    bool isEmpty(void);
 };

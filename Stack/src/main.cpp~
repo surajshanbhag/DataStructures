@@ -1,9 +1,0 @@
-#ifndef _main_
-#define _main_
-#include "../hdr/main.h"
-#endif
-
-int main(int argc,char *argv[])
-{
-  return 0;
-}

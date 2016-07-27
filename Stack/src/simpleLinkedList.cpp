@@ -4,43 +4,6 @@
 #endif
 
 int LinkedList::length=0;
-/*******************************************Node(void)*/
-Node::Node(void)
-{
-  ptrNext=NULL;
-}
-
-/*******************************************Node(int VAL,Node *ptr)*/
-Node::Node(int VAL,Node *ptr)
-{
-  ptrNext=ptr;
-  data=VAL;
-}
-
-
-/*******************************************Node::getValue(void)*/
-int Node::getValue(void)
-{
-  return data;
-}
-
-/*******************************************Node::getPtr(void)*/
-Node* Node::getPtr(void)
-{
-  return ptrNext;
-}
-/*******************************************Node::setValue(int VAL)*/
-void Node::setData(int VAL)
-{
-  data=VAL;
-}
-
-/*******************************************Node::setPtr(Node *ptr)*/
-void Node::setPtr(Node *ptr)
-{
-  ptrNext=ptr;
-}
-
 /******************************************void LinkedList::LinkedList(void)*/
 LinkedList::LinkedList(void)
 {
@@ -141,13 +104,15 @@ int LinkedList::find(int VAL)
 {
   Node *temp=head;
   int count=0;
+  int ret=-1;
   while(temp !=NULL)
   {
     if(temp->getValue() == VAL)
     {
-      return count;
+      ret=count;
     }
     temp=temp->getPtr();
     count++;
   }
+  return ret;
 }

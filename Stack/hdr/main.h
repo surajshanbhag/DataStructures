@@ -8,3 +8,9 @@
 #include "./simpleLinkedList.h"
 #endif
 
+
+#ifndef  _stack_
+#define _stack_
+#include "./stack.h"
+#endif
+
