@@ -3,8 +3,9 @@
 #include "./commonHeaders.h"
 #endif
 
-#ifndef  _stack_
-#define _stack_
-#include "./stack.h"
+
+#ifndef  _queue_
+#define _queue_
+#include "./queue.h"
 #endif
 

@@ -3,15 +3,15 @@
 #include "./../hdr/main.h"
 #endif
 
-void StackFunc(void);
+void queueFunc(void);
 int main(int argc,char *argv[])
 {
-  StackFunc();
+  queueFunc();
   return 0;
 }
-void StackFunc(void)
+void queueFunc(void)
 {
-  Stack *StackPtr=new Stack();
+  Queue *queuePtr=new Queue();
   char input=0;
   int VAL=0;
   while(input != 'x')
@@ -24,21 +24,21 @@ void StackFunc(void)
       case 'u':
         std::cout<<"enter value:";
         std::cin>>VAL;
-        StackPtr->Push(VAL);
-        std::cout<<"list length:"<<StackPtr->getLength()<<"\n";
+        queuePtr->Push(VAL);
+        std::cout<<"list length:"<<queuePtr->getLength()<<"\n";
         break;
       case 'o':
-        std::cout<<StackPtr->Pop();
-        std::cout<<"\nlist length:"<<StackPtr->getLength()<<"\n";
+        std::cout<<queuePtr->Pop();
+        std::cout<<"\nlist length:"<<queuePtr->getLength()<<"\n";
         break;
       case 'f':
         std::cout<<"enter value:";
         std::cin>>VAL;
-        std::cout<<"\nposition :"<<StackPtr->find(VAL);
+        std::cout<<"\nposition :"<<queuePtr->find(VAL);
         break;
       case 'p':
-        StackPtr->PrintStack();
-        std::cout<<"list length:"<<StackPtr->getLength()<<"\n";
+        queuePtr->PrintQueue();
+        std::cout<<"list length:"<<queuePtr->getLength()<<"\n";
         break;
       case 'x':
       default:
@@ -46,3 +46,4 @@ void StackFunc(void)
     }
   }
 }
+
