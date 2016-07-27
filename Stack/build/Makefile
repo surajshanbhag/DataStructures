@@ -29,3 +29,7 @@ $(OBJECTS): $(OBJDIR)/%.o : $(SRCDIR)/%.cpp
 
 clean:
 	rm -f $(BIN) ../src/*.o ../obj/*.o ../output/*.ifs
+
+print:
+	@echo $(SOURCES)
+	@echo $(OBJECTS)
