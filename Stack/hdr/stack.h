@@ -8,19 +8,19 @@
 #include "./node.h"
 #endif
 
-class Stack
+class C_Stack
 {
   private:
-    Node *head;
-    Node *tail;
-    int length;
+    C_Node *P_HeadPtr;
+    C_Node *P_TailPtr;
+    int V_Length;
 
   public:
-    Stack(void);
-    void Push(int VAL);
+    C_Stack(void);
+    void Push(int v_val);
     int Pop(void);
     void PrintStack(void);
     int getLength(void);
-    int find(int VAL);
+    int find(int v_val);
     bool isEmpty(void);
 };

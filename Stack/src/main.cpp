@@ -11,34 +11,34 @@ int main(int argc,char *argv[])
 }
 void StackFunc(void)
 {
-  Stack *StackPtr=new Stack();
-  char input=0;
-  int VAL=0;
-  while(input != 'x')
+  C_Stack *P_StackPtr=new C_Stack();
+  char v_input=0;
+  int v_val=0;
+  while(v_input != 'x')
   {
-    input=0;
+    v_input=0;
     std::cout<<"u : Push\no: Pop\np :Print\nf: find\nx: exit :";
-    std::cin>>input;
-    switch(input)
+    std::cin>>v_input;
+    switch(v_input)
     {
       case 'u':
         std::cout<<"enter value:";
-        std::cin>>VAL;
-        StackPtr->Push(VAL);
-        std::cout<<"list length:"<<StackPtr->getLength()<<"\n";
+        std::cin>>v_val;
+        P_StackPtr->Push(v_val);
+        std::cout<<"list length:"<<P_StackPtr->getLength()<<"\n";
         break;
       case 'o':
-        std::cout<<StackPtr->Pop();
-        std::cout<<"\nlist length:"<<StackPtr->getLength()<<"\n";
+        std::cout<<P_StackPtr->Pop();
+        std::cout<<"\nlist length:"<<P_StackPtr->getLength()<<"\n";
         break;
       case 'f':
         std::cout<<"enter value:";
-        std::cin>>VAL;
-        std::cout<<"\nposition :"<<StackPtr->find(VAL);
+        std::cin>>v_val;
+        std::cout<<"\nposition :"<<P_StackPtr->find(v_val);
         break;
       case 'p':
-        StackPtr->PrintStack();
-        std::cout<<"list length:"<<StackPtr->getLength()<<"\n";
+        P_StackPtr->PrintStack();
+        std::cout<<"list length:"<<P_StackPtr->getLength()<<"\n";
         break;
       case 'x':
       default:

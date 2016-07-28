@@ -3,38 +3,56 @@
 #include "./node.h"
 #endif
 
-/*******************************************Node(void)*/
-Node::Node(void)
+/*******************************************C_Node(void)*/
+C_Node::C_Node(void)
 {
-  ptrNext=NULL;
+  P_NextPtr=NULL;
+  P_PrevPtr=NULL;
 }
 
-/*******************************************Node(int VAL,Node *ptr)*/
-Node::Node(int VAL,Node *ptr)
+/*******************************************C_Node(int v_val,C_Node *p_nextPtr)*/
+C_Node::C_Node(int v_val,C_Node *p_nextPtr)
 {
-  ptrNext=ptr;
-  data=VAL;
+  P_NextPtr=p_nextPtr;
+  P_PrevPtr=NULL;
+  V_Data=v_val;
 }
 
-/*******************************************Node::getValue(void)*/
-int Node::getValue(void)
+/*******************************************C_Node(int v_val,C_Node *p_nextPtr,C_Node *p_prevPtr)*/
+C_Node::C_Node(int v_val,C_Node *p_nextPtr,C_Node *p_prevPtr)
 {
-  return data;
+  P_NextPtr=p_nextPtr;
+  P_PrevPtr=p_prevPtr;
+  V_Data=v_val;
+}
+/*******************************************int C_Node::getValue(void)*/
+int C_Node::getValue(void)
+{
+  return V_Data;
 }
 
-/*******************************************Node::getPtr(void)*/
-Node* Node::getPtr(void)
+/*******************************************C_Node::getNextPtr(void)*/
+C_Node* C_Node::getNextPtr(void)
 {
-  return ptrNext;
+  return P_NextPtr;
 }
-/*******************************************Node::setValue(int VAL)*/
-void Node::setData(int VAL)
+/*******************************************C_Node::getPrevPtr(void)*/
+C_Node* C_Node::getPrevPtr(void)
 {
-  data=VAL;
+  return P_PrevPtr;
 }
-
-/*******************************************Node::setPtr(Node *ptr)*/
-void Node::setPtr(Node *ptr)
+/*******************************************C_Node::setValue(int v_val)*/
+void C_Node::setData(int v_val)
 {
-  ptrNext=ptr;
+  V_Data=v_val;
+}
+/*******************************************C_Node::setNextPtr(C_Node *p_nextPtr)*/
+void C_Node::setNextPtr(C_Node *p_nextPtr)
+{
+  P_NextPtr=p_nextPtr;
+}
+/*******************************************C_Node::setPrevPtr(C_Node *p_prevPtr)*/
+void C_Node::setPrevPtr(C_Node *p_prevPtr)
+{
+  P_PrevPtr=p_prevPtr;
 }

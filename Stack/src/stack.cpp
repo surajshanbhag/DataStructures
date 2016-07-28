@@ -3,112 +3,111 @@
 #include "./stack.h"
 #endif
 
-/******************************************void Stack::Stack(void)*/
-Stack::Stack(void)
+/******************************************void C_Stack::C_Stack(void)*/
+C_Stack::C_Stack(void)
 {
-  head=NULL;
-  tail=NULL;
-  length=0;
+  P_HeadPtr=NULL;
+  P_TailPtr=NULL;
+  V_Length=0;
 }
 
-/******************************************void Stack::Push(int VAL)*/
-void Stack::Push(int VAL)
+/******************************************void C_Stack::Push(int v_val)*/
+void C_Stack::Push(int v_val)
 {
-  Node *newNode=new Node(VAL,NULL);
-  Node *temp=head;
+  C_Node *p_newC_Node=new C_Node(v_val,NULL,NULL);
+  C_Node *p_temp=P_HeadPtr;
 
-  if(temp !=  NULL)
+  if(p_temp !=  NULL)
   {
-    while(temp->getPtr() != NULL)
+    while(p_temp->getNextPtr() != NULL)
     {
-      temp=temp->getPtr();
+      p_temp=p_temp->getNextPtr();
     }
-    temp->setPtr(newNode);
-    tail=newNode;
+    p_temp->setNextPtr(p_newC_Node);
+    P_TailPtr=p_newC_Node;
   }
   else
   {
-    head=newNode;
-    tail=newNode;
+    P_HeadPtr=p_newC_Node;
+    P_TailPtr=p_newC_Node;
   }
-  length++;
+  V_Length++;
 }
 
-/****************************************void Stack::Pop(int position)*/
-int Stack::Pop(void)
+/****************************************void C_Stack::Pop(int position)*/
+int C_Stack::Pop(void)
 {
-  int ret=-1;
-  if(length == 0 )
+  int v_ret=-1;
+  if(V_Length == 0 )
   {
     std::cout<<"\nERROR :Nothing to POP";
   }
   else
   {
-    int index=1;
-    Node *temp=head;
-    while(index < length-1)
+    int v_index=1;
+    C_Node *p_temp=P_HeadPtr;
+    while(v_index < V_Length-1)
     {
-      index++;
-      temp=temp->getPtr();
+      v_index++;
+      p_temp=p_temp->getNextPtr();
     }
-    std::cout<<"\ntail -1"<<temp<<"\n";
-    Node *popNode=tail;
-    ret=popNode->getValue();
-    tail=temp;
-    tail->setPtr(NULL);
-    delete[] popNode;
-    length--;
+    C_Node *p_popC_Node=P_TailPtr;
+    v_ret=p_popC_Node->getValue();
+    P_TailPtr=p_temp;
+    P_TailPtr->setNextPtr(NULL);
+    delete[] p_popC_Node;
+    V_Length--;
   }
-  return ret;
+  return v_ret;
 }
 
-/****************************************void Stack::PrintStack(void)*/
-void Stack::PrintStack(void)
+/****************************************void C_Stack::PrintStack(void)*/
+void C_Stack::PrintStack(void)
 {
-  Node *temp=head;
+  C_Node *p_temp=P_HeadPtr;
   std::cout<<"\n";
-  int count=0;
-  std::cout<<"\n Head:"<<head<<"\ntail :"<<tail<<"\n";
-  while(temp !=NULL)
+  int v_count=0;
+  std::cout<<"\n P_HeadPtr:"<<P_HeadPtr<<"\nP_TailPtr :"<<P_TailPtr<<"\n";
+  while(p_temp !=NULL)
   {
-    std::cout<<count<<"\t"<<temp->getValue()<<"\t"<<temp<<"\n";
-    temp=temp->getPtr();
-    count++;
+    std::cout<<v_count<<"\t"<<p_temp->getValue()<<"\t"<<p_temp<<"\n";
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
 }
 
-/***************************************int Stack::getLength(void)*/
-int Stack::getLength(void)
+/***************************************int C_Stack::getLength(void)*/
+int C_Stack::getLength(void)
 {
-  return length;
+  return V_Length;
 }
 
-/**************************************int Stack::find(int VAL)*/
-int Stack::find(int VAL)
+/**************************************int C_Stack::find(int v_val)*/
+int C_Stack::find(int v_val)
 {
-  Node *temp=head;
-  int count=0;
-  int ret=-1;
-  while(temp !=NULL)
+  C_Node *p_temp=P_HeadPtr;
+  int v_count=0;
+  int v_ret=-1;
+  while(p_temp !=NULL)
   {
-    if(temp->getValue() == VAL)
+    if(p_temp->getValue() == v_val)
     {
-      ret=count;
+      v_ret=v_count;
     }
-    temp=temp->getPtr();
-    count++;
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
-  return ret;
+  return v_ret;
 }
 
-/***********************************bool Stack::isEmpty(void)*/
-bool Stack::isEmpty(void)
+/***********************************bool C_Stack::isEmpty(void)*/
+bool C_Stack::isEmpty(void)
 {
-  bool ret=false;
-  if(length == 0)
+  bool v_ret=false;
+  if(V_Length == 0)
   {
-    ret=true;
+    v_ret=true;
   }
-  return ret;
+  return v_ret;
 }
 
