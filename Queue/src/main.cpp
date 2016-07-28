@@ -11,34 +11,34 @@ int main(int argc,char *argv[])
 }
 void queueFunc(void)
 {
-  Queue *queuePtr=new Queue();
-  char input=0;
-  int VAL=0;
-  while(input != 'x')
+  C_Queue *p_queuePtr=new C_Queue();
+  char v_input=0;
+  int v_val=0;
+  while(v_input != 'x')
   {
-    input=0;
+    v_input=0;
     std::cout<<"u : Push\no: Pop\np :Print\nf: find\nx: exit :";
-    std::cin>>input;
-    switch(input)
+    std::cin>>v_input;
+    switch(v_input)
     {
       case 'u':
         std::cout<<"enter value:";
-        std::cin>>VAL;
-        queuePtr->Push(VAL);
-        std::cout<<"list length:"<<queuePtr->getLength()<<"\n";
+        std::cin>>v_val;
+        p_queuePtr->Push(v_val);
+        std::cout<<"list length:"<<p_queuePtr->getLength()<<"\n";
         break;
       case 'o':
-        std::cout<<queuePtr->Pop();
-        std::cout<<"\nlist length:"<<queuePtr->getLength()<<"\n";
+        std::cout<<p_queuePtr->Pop();
+        std::cout<<"\nlist length:"<<p_queuePtr->getLength()<<"\n";
         break;
       case 'f':
         std::cout<<"enter value:";
-        std::cin>>VAL;
-        std::cout<<"\nposition :"<<queuePtr->find(VAL);
+        std::cin>>v_val;
+        std::cout<<"\nposition :"<<p_queuePtr->find(v_val);
         break;
       case 'p':
-        queuePtr->PrintQueue();
-        std::cout<<"list length:"<<queuePtr->getLength()<<"\n";
+        p_queuePtr->PrintQueue();
+        std::cout<<"list length:"<<p_queuePtr->getLength()<<"\n";
         break;
       case 'x':
       default:

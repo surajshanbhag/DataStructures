@@ -8,19 +8,19 @@
 #include "./node.h"
 #endif
 
-class Queue
+class C_Queue
 {
   private:
-    Node *head;
-    Node *tail;
-    int length;
+    C_Node *P_HeadPtr;
+    C_Node *P_TailPtr;
+    int V_Length;
 
   public:
-    Queue(void);
-    void Push(int VAL);
+    C_Queue(void);
+    void Push(int v_val);
     int Pop(void);
     void PrintQueue(void);
     int getLength(void);
-    int find(int VAL);
+    int find(int v_val);
     bool isEmpty(void);
 };

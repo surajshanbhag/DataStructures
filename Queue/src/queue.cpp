@@ -3,103 +3,103 @@
 #include "./queue.h"
 #endif
 
-/******************************************void Queue::Queue(void)*/
-Queue::Queue(void)
+/******************************************void C_Queue::C_Queue(void)*/
+C_Queue::C_Queue(void)
 {
-  head=NULL;
-  tail=NULL;
-  length=0;
+  P_HeadPtr=NULL;
+  P_TailPtr=NULL;
+  V_Length=0;
 }
 
-/******************************************void Queue::Push(int VAL)*/
-void Queue::Push(int VAL)
+/******************************************void C_Queue::Push(int v_val)*/
+void C_Queue::Push(int v_val)
 {
-  Node *newNode=new Node(VAL,NULL);
-  Node *temp=head;
+  C_Node *p_newNode=new C_Node(v_val,NULL);
+  C_Node *p_temp=P_HeadPtr;
 
-  if(temp !=  NULL)
+  if(p_temp !=  NULL)
   {
-    while(temp->getPtr() != NULL)
+    while(p_temp->getNextPtr() != NULL)
     {
-      temp=temp->getPtr();
+      p_temp=p_temp->getNextPtr();
     }
-    temp->setPtr(newNode);
-    tail=newNode;
+    p_temp->setNextPtr(p_newNode);
+    P_TailPtr=p_newNode;
   }
   else
   {
-    head=newNode;
-    tail=newNode;
+    P_HeadPtr=p_newNode;
+    P_TailPtr=p_newNode;
   }
-  length++;
+  V_Length++;
 }
 
-/****************************************void Queue::Pop(int position)*/
-int Queue::Pop(void)
+/****************************************void C_Queue::Pop(int position)*/
+int C_Queue::Pop(void)
 {
-  int ret=-1;
-  if(length == 0 )
+  int v_ret=-1;
+  if(V_Length == 0 )
   {
     std::cout<<"\nERROR :Nothing to POP";
   }
   else
   {
-    Node *temp=head;
-    ret=temp->getValue();
-    head=temp->getPtr();
-    length--;
+    C_Node *p_temp=P_HeadPtr;
+    v_ret=p_temp->getValue();
+    P_HeadPtr=p_temp->getNextPtr();
+    V_Length--;
 
   }
-  return ret;
+  return v_ret;
 }
 
-/****************************************void Queue::PrintQueue(void)*/
-void Queue::PrintQueue(void)
+/****************************************void C_Queue::PrintQueue(void)*/
+void C_Queue::PrintQueue(void)
 {
-  Node *temp=head;
+  C_Node *p_temp=P_HeadPtr;
   std::cout<<"\n";
-  int count=0;
-  std::cout<<"\n Head:"<<head<<"\ntail :"<<tail<<"\n";
-  while(temp !=NULL)
+  int v_count=0;
+  std::cout<<"\n Head:"<<P_HeadPtr<<"\ntail :"<<P_TailPtr<<"\n";
+  while(p_temp !=NULL)
   {
-    std::cout<<count<<"\t"<<temp->getValue()<<"\t"<<temp<<"\n";
-    temp=temp->getPtr();
-    count++;
+    std::cout<<v_count<<"\t"<<p_temp->getValue()<<"\t"<<p_temp<<"\n";
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
 }
 
-/***************************************int Queue::getLength(void)*/
-int Queue::getLength(void)
+/***************************************int C_Queue::getLength(void)*/
+int C_Queue::getLength(void)
 {
-  return length;
+  return V_Length;
 }
 
-/**************************************int Queue::find(int VAL)*/
-int Queue::find(int VAL)
+/**************************************int C_Queue::find(int v_val)*/
+int C_Queue::find(int v_val)
 {
-  Node *temp=head;
-  int count=0;
-  int ret=-1;
-  while(temp !=NULL)
+  C_Node *p_temp=P_HeadPtr;
+  int v_count=0;
+  int v_ret=-1;
+  while(p_temp !=NULL)
   {
-    if(temp->getValue() == VAL)
+    if(p_temp->getValue() == v_val)
     {
-      ret=count;
+      v_ret=v_count;
     }
-    temp=temp->getPtr();
-    count++;
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
-  return ret;
+  return v_ret;
 }
 
-/***********************************bool Queue::isEmpty(void)*/
-bool Queue::isEmpty(void)
+/***********************************bool C_Queue::isEmpty(void)*/
+bool C_Queue::isEmpty(void)
 {
-  bool ret=false;
-  if(length == 0)
+  bool v_ret=false;
+  if(V_Length == 0)
   {
-    ret=true;
+    v_ret=true;
   }
-  return ret;
+  return v_ret;
 }
 
