@@ -8,18 +8,18 @@
 #include "./node.h"
 #endif
 
-class LinkedList
+class C_SimpleLinkedList
 {
   private:
-    Node *head;
-    static int length;
+    C_Node *P_HeadPtr;
+    int V_Length;
 
   public:
-    LinkedList(void);
-    void Append(int VAL);
-    void Delete(int position);
-    void Insert(int VAL,int position);
+    C_SimpleLinkedList(void);
+    void Append(int v_val);
+    void Delete(int v_position);
+    void Insert(int v_val,int v_position);
     void PrintList(void);
     int getLength(void);
-    int find(int VAL);
+    int find(int v_val);
 };

@@ -7,3 +7,8 @@
 #define _simpleLinkedList_
 #include "./simpleLinkedList.h"
 #endif
+
+#ifndef  _doublyLinkedList_
+#define _doublyLinkedList_
+#include "./doublyLinkedList.h"
+#endif

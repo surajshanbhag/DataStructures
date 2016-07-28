@@ -3,116 +3,114 @@
 #include "./simpleLinkedList.h"
 #endif
 
-int LinkedList::length=0;
-/******************************************void LinkedList::LinkedList(void)*/
-LinkedList::LinkedList(void)
+/******************************************void C_SimpleLinkedList::C_SimpleLinkedList(void)*/
+C_SimpleLinkedList::C_SimpleLinkedList(void)
 {
-  head=NULL;
-  LinkedList::length=0;
+  P_HeadPtr=NULL;
+  V_Length=0;
 }
 
-/******************************************void LinkedList::Append(int VAL)*/
-void LinkedList::Append(int VAL)
+/******************************************void C_SimpleLinkedList::Append(int v_val)*/
+void C_SimpleLinkedList::Append(int v_val)
 {
-  Node *newNode=new Node(VAL,NULL);
-  Node *temp=head;
+  C_Node *p_newNode=new C_Node(v_val,NULL,NULL);
+  C_Node *p_temp=P_HeadPtr;
 
-  if(temp !=  NULL)
+  if(p_temp !=  NULL)
   {
-    while(temp->getPtr() != NULL)
+    while(p_temp->getNextPtr() != NULL)
     {
-      temp=temp->getPtr();
+      p_temp=p_temp->getNextPtr();
     }
-    temp->setPtr(newNode);
+    p_temp->setNextPtr(p_newNode);
   }
   else
   {
-    head=newNode;
+    P_HeadPtr=p_newNode;
   }
-  LinkedList::length++;
+  V_Length++;
 }
 
-/****************************************void LinkedList::Insert(int VAL,int position)*/
-void LinkedList::Insert(int VAL,int position)
+/****************************************void C_SimpleLinkedList::Insert(int v_val,int v_position)*/
+void C_SimpleLinkedList::Insert(int v_val,int v_position)
 {
-  if(position > LinkedList::length && head != NULL)
+  if(v_position > V_Length && P_HeadPtr != NULL)
   {
-    std::cout<<"Cannot insert beyond last element: length of list :"<<LinkedList::length;
+    std::cout<<"Cannot insert beyond last element: length of list :"<<V_Length;
   }
   else
   {
-    int index=1;
-    Node *temp=head;
-    while(index < position)
+    int v_index=1;
+    C_Node *p_temp=P_HeadPtr;
+    while(v_index < v_position)
     {
-      index++;
-      temp=temp->getPtr();
+      v_index++;
+      p_temp=p_temp->getNextPtr();
     }
-    std::cout<<"\n$$$$"<<VAL<<"___"<<position<<"\n";
-    Node *newNode= new Node(VAL,temp->getPtr());
-    temp->setPtr(newNode); 
-    LinkedList::length++;
+    C_Node *p_newNode= new C_Node(v_val,p_temp->getNextPtr());
+    p_temp->setNextPtr(p_newNode); 
+    V_Length++;
   }
 }
 
-/****************************************void LinkedList::Delete(int position)*/
-void LinkedList::Delete(int position)
+/****************************************void C_SimpleLinkedList::Delete(int v_position)*/
+void C_SimpleLinkedList::Delete(int v_position)
 {
-  if(position > LinkedList::length)
+  if(v_position > V_Length)
   {
-    std::cout<<"Cannot delete beyond last element: length of list :"<<LinkedList::length;
+    std::cout<<"Cannot delete beyond last element: length of list :"<<V_Length;
   }
   else
   {
-    int index=0;
-    Node *temp=head;
-    while(index < position-1)
+    int v_index=0;
+    C_Node *p_temp=P_HeadPtr;
+    while(v_index < v_position-1)
     {
-      index++;
-      temp=temp->getPtr();
+      v_index++;
+      p_temp=p_temp->getNextPtr();
     }
-    Node *delNode=temp->getPtr(); 
-    Node *nextNode=delNode->getPtr();
-    temp->setPtr(nextNode);
-    delete[] delNode;
-    LinkedList::length--;
+    C_Node *p_delNode=p_temp->getNextPtr(); 
+    C_Node *p_nextNode=p_delNode->getNextPtr();
+    p_temp->setNextPtr(p_nextNode);
+    delete[] p_delNode;
+    V_Length--;
   }
 }
 
-/****************************************void LinkedList::PrintList(void)*/
-void LinkedList::PrintList(void)
+/****************************************void C_SimpleLinkedList::PrintList(void)*/
+void C_SimpleLinkedList::PrintList(void)
 {
-  Node *temp=head;
+  C_Node *p_temp=P_HeadPtr;
   std::cout<<"\n";
-  int count=0;
-  while(temp !=NULL)
+  int v_count=0;
+  while(p_temp !=NULL)
   {
-    std::cout<<count<<"\t"<<temp->getValue()<<"\n";
-    temp=temp->getPtr();
-    count++;
+    std::cout<<v_count<<"\t"<<p_temp->getValue()<<"\t"<<p_temp->getNextPtr()<<"\n";
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
 }
 
-/***************************************int LinkedList::getLength(void)*/
-int LinkedList::getLength(void)
+/***************************************int C_SimpleLinkedList::getLength(void)*/
+int C_SimpleLinkedList::getLength(void)
 {
-  return LinkedList::length;
+  return V_Length;
 }
 
-/**************************************int LinkedList::find(int VAL)*/
-int LinkedList::find(int VAL)
+/**************************************int C_SimpleLinkedList::find(int v_val)*/
+int C_SimpleLinkedList::find(int v_val)
 {
-  Node *temp=head;
-  int count=0;
-  int ret=-1;
-  while(temp !=NULL)
+  C_Node *p_temp=P_HeadPtr;
+  int v_count=0;
+  int v_ret=-1;
+  while(p_temp !=NULL)
   {
-    if(temp->getValue() == VAL)
+    if(p_temp->getValue() == v_val)
     {
-      ret=count;
+      v_ret=v_count;
     }
-    temp=temp->getPtr();
-    count++;
+    p_temp=p_temp->getNextPtr();
+    v_count++;
   }
-  return ret;
+  return v_ret;
 }
