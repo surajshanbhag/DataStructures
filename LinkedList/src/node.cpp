@@ -1,5 +1,5 @@
-#ifndef  simpleLinkedList
-#define simpleLinkedList
+#ifndef  node
+#define node
 #include "./node.h"
 #endif
 
